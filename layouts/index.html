@@ -105,19 +105,19 @@
 
 <section class="content-section" id="contact">
   <h2>Contact</h2>
-  <div class="contact-grid">
-    <div>
-      <h3>Email</h3>
-      <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
-    </div>
-    <div>
-      <h3>Languages</h3>
-      <ul class="plain-list">
-        {{ range site.Data.languages }}
-          <li>{{ .language }}: {{ .level }}</li>
-        {{ end }}
-      </ul>
-    </div>
+  <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+  <div class="social-links" aria-label="Contact links">
+    {{ with site.Params.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+    {{ with site.Params.orcid }}<a href="{{ . }}" target="_blank" rel="noopener">ORCID</a>{{ end }}
   </div>
+</section>
+
+<section class="content-section" id="languages">
+  <h2>Languages</h2>
+  <ul class="plain-list">
+    {{ range site.Data.languages }}
+      <li>{{ .language }}: {{ .level }}</li>
+    {{ end }}
+  </ul>
 </section>
 {{ end }}
