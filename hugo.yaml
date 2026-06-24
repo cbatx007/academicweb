@@ -9,11 +9,11 @@ params:
   email: "cbatallas@faculty.ie.edu"
   titleLine: "Adjunct Professor, IE University; PhD Candidate, Universidad Complutense de Madrid"
   tagline: "I study the behaviour of non-state armed groups and the factors shaping compliance with international humanitarian law."
-  photo: "/images/photo.jpg"
+  photo: "images/photo.jpg"
   photoAlt: "Portrait of Carlos Batallas"
   linkedin: "https://www.linkedin.com/in/carlosbatallas/"
   orcid: "https://orcid.org/0009-0000-8602-0026"
-  cv: "/files/cv.pdf"
+  cv: "files/cv.pdf"
 
 menu:
   main:
