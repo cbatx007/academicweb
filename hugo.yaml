@@ -13,7 +13,7 @@ params:
   photoAlt: "Portrait of Carlos Batallas"
   linkedin: "https://www.linkedin.com/in/carlosbatallas/"
   orcid: "https://orcid.org/0009-0000-8602-0026"
-  cv: "files/cv-jun-2026.pdf"
+  cv: "files/cv.pdf"
 
 menu:
   main:
