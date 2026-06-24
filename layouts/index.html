@@ -11,7 +11,7 @@
       <a href="mailto:{{ site.Params.email }}">Email</a>
       {{ with site.Params.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
       {{ with site.Params.orcid }}<a href="{{ . }}" target="_blank" rel="noopener">ORCID</a>{{ end }}
-      {{ with site.Params.cv }}<a class="button" href="{{ . | relURL }}">CV (PDF)</a>{{ end }}
+      {{ with site.Params.cv }}<a href="{{ . | relURL }}">CV</a>{{ end }}
     </div>
   </div>
 </section>
