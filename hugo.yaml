@@ -1,0 +1,39 @@
+baseURL: "https://cbatx007.github.io/academicweb/"
+title: "Carlos Batallas"
+languageCode: en-us
+enableRobotsTXT: true
+
+params:
+  author: "Carlos Batallas"
+  description: "Adjunct Professor at IE University and PhD Candidate at Universidad Complutense de Madrid"
+  email: "cbatallas@faculty.ie.edu"
+  titleLine: "Adjunct Professor, IE University; PhD Candidate, Universidad Complutense de Madrid"
+  tagline: "I study the behaviour of non-state armed groups and the factors shaping compliance with international humanitarian law."
+  photo: "/images/photo.jpg"
+  photoAlt: "Portrait of Carlos Batallas"
+  linkedin: "https://www.linkedin.com/in/carlosbatallas/"
+  orcid: "https://orcid.org/0009-0000-8602-0026"
+  cv: "/files/cv.pdf"
+
+menu:
+  main:
+    - name: Research
+      url: "/#research"
+      weight: 10
+    - name: Teaching
+      url: "/#teaching"
+      weight: 20
+    - name: Talks
+      url: "/#talks"
+      weight: 30
+    - name: Contact
+      url: "/#contact"
+      weight: 40
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+security:
+  enableInlineShortcodes: false

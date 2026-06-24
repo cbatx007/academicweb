@@ -1,0 +1,19 @@
+<header class="site-header">
+  <nav class="nav-wrap" aria-label="Main navigation">
+    <a class="brand" href="{{ "/" | relURL }}">{{ site.Params.author }}</a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle menu">
+    <label class="nav-button" for="nav-toggle" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <div class="nav-links">
+      {{ range site.Menus.main }}
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+      {{ end }}
+      {{ with site.Params.cv }}
+        <a href="{{ . | relURL }}">CV</a>
+      {{ end }}
+    </div>
+  </nav>
+</header>

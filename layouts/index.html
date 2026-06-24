@@ -1,0 +1,123 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-photo">
+    <img src="{{ site.Params.photo | relURL }}" alt="{{ site.Params.photoAlt }}" width="180" height="180">
+  </div>
+  <div class="hero-copy">
+    <p class="eyebrow">{{ site.Params.titleLine }}</p>
+    <h1>{{ site.Params.author }}</h1>
+    <p class="tagline">{{ site.Params.tagline }}</p>
+    <div class="social-links" aria-label="Social links">
+      <a href="mailto:{{ site.Params.email }}">Email</a>
+      {{ with site.Params.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+      {{ with site.Params.orcid }}<a href="{{ . }}" target="_blank" rel="noopener">ORCID</a>{{ end }}
+      {{ with site.Params.cv }}<a class="button" href="{{ . | relURL }}">CV (PDF)</a>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="bio">
+  <h2>Bio</h2>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</section>
+
+<section class="content-section" id="research">
+  <h2>Research</h2>
+  {{ $papers := site.Data.papers }}
+  {{ $working := where $papers "status" "in" (slice "working paper" "work in progress" "under review" "revise and resubmit" "accepted") }}
+  {{ $published := where $papers "status" "published" }}
+  {{ with $working }}
+    <h3>Working Papers</h3>
+    <div class="paper-list">
+      {{ range . }}
+        <article class="paper-item">
+          <div class="paper-main">
+            <h4>
+              {{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+              <span class="status-badge">{{ .status }}</span>
+            </h4>
+            <p class="meta">{{ delimit .authors ", " }}{{ with .year }} · {{ . }}{{ end }}{{ with .venue }} · {{ . }}{{ end }}</p>
+            {{ with .abstract }}<p>{{ . }}</p>{{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+  {{ with $published }}
+    <h3>Publications and Essays</h3>
+    <div class="paper-list compact">
+      {{ range . }}
+        <article class="paper-item">
+          <h4>{{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h4>
+          <p class="meta">{{ delimit .authors ", " }}{{ with .year }} · {{ . }}{{ end }}{{ with .venue }} · {{ . }}{{ end }}</p>
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+</section>
+
+<section class="content-section" id="teaching">
+  <h2>Teaching</h2>
+  <div class="timeline">
+    {{ range site.Data.teaching }}
+      <article>
+        <h3>{{ .course }}</h3>
+        <p class="meta">{{ .role }}, {{ .institution }} · {{ .term }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="content-section" id="education">
+  <h2>Education</h2>
+  <div class="timeline">
+    {{ range site.Data.education }}
+      <article>
+        <h3>{{ .degree }}</h3>
+        <p class="meta">{{ .institution }} · {{ .year }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="content-section" id="talks">
+  <h2>Presentations</h2>
+  <div class="timeline">
+    {{ range site.Data.talks }}
+      <article>
+        <h3>{{ .title }}</h3>
+        <p class="meta">{{ .venue }} · {{ .date }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="content-section" id="affiliations">
+  <h2>Affiliations and Service</h2>
+  <ul class="link-list">
+    {{ range site.Data.affiliations }}
+      <li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></li>
+    {{ end }}
+  </ul>
+</section>
+
+<section class="content-section" id="contact">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div>
+      <h3>Email</h3>
+      <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+    </div>
+    <div>
+      <h3>Languages</h3>
+      <ul class="plain-list">
+        {{ range site.Data.languages }}
+          <li>{{ .language }}: {{ .level }}</li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>
+{{ end }}
